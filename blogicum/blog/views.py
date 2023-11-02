@@ -44,7 +44,7 @@ posts = [
     },
 ]
 
-posts_dict = {post['id']: post for post in posts}
+POSTS_DICT = {post['id']: post for post in posts}
 
 
 def index(request):
@@ -55,15 +55,14 @@ def index(request):
     return render(request, template, context)
 
 
-def post_detail(request, id):
+def post_detail(request, post_id):
     template = 'blog/detail.html'
-    if id in posts_dict:
+    if post_id in POSTS_DICT:
         context = {
-            'post': posts_dict[id]
+            'post': POSTS_DICT[post_id]
         }
         return render(request, template, context)
-    else:
-        raise Http404
+    raise Http404
 
 
 def category_posts(request, category_slug):

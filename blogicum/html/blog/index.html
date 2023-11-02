@@ -16,8 +16,8 @@
         Читать полный текст
       </a>
     </article>
-    {% if forloop.last != True %}
-    <hr>
+    {% if forloop.last is not True %}
+      <hr>
     {% endif %}
     {% endfor %}
   </div>
